@@ -15,6 +15,11 @@ const messages = [
   },
 ];
 
-indexRouter.get("/", (req, res) => res.render("index"));
+indexRouter.get("/", (req, res) =>
+  res.render("index", {
+    title: "ScaxCodes mini message board",
+    messages: messages,
+  })
+);
 
 module.exports = indexRouter;

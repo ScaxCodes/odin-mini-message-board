@@ -3,9 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ScaxCodes mini message board</title>
+    <title><%= title %></title>
   </head>
   <body>
-    All messages placeholder
+    <h1>All Messages</h1>
+    <ul>
+      <% messages.forEach((message) => { %>
+      <li>
+        <strong><%= message.user %></strong>: <%= message.text %> <br />
+        <small><%= message.added.toLocaleString() %></small>
+      </li>
+      <% }) %>
+    </ul>
   </body>
 </html>
