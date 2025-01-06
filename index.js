@@ -2,8 +2,12 @@ const express = require("express");
 const server = express();
 const indexRouter = require("./routes/indexRouter");
 const newMessageRouter = require("./routes/newMessageRouter");
+const path = require("node:path");
 
 const PORT = process.env.PORT;
+
+server.set("views", path.join(__dirname, "views"));
+server.set("view engine", "ejs");
 
 server.use("/", indexRouter);
 server.use("/new", newMessageRouter);
