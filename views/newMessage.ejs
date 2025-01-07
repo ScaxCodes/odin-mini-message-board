@@ -4,8 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ScaxCodes mini message board</title>
+    <style>
+      form label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      form input,
+      form textarea {
+        display: block;
+        margin-bottom: 16px;
+      }
+    </style>
   </head>
   <body>
-    New messages form placeholder
+    <h1>Post a New Message</h1>
+    <form method="POST" action="/new">
+      <label for="user">Your Name:</label>
+      <input type="text" id="user" name="user" required />
+
+      <label for="text">Your Message:</label>
+      <textarea id="text" name="text" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>

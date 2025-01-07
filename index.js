@@ -8,6 +8,7 @@ const PORT = process.env.PORT;
 
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
+server.use(express.urlencoded({ extended: true }));
 
 server.use("/", indexRouter);
 server.use("/new", newMessageRouter);

@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <style>
+      .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
     <h1>All Messages</h1>
@@ -15,5 +29,6 @@
       </li>
       <% }) %>
     </ul>
+    <a href="/new" class="button">New Message</a>
   </body>
 </html>
