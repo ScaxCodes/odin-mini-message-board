@@ -1,25 +1,35 @@
 const { Router } = require("express");
+const db = require("../db/queries");
 
 const indexRouter = Router();
 
 const messages = [
   {
-    text: "Hi there!",
-    user: "Amando",
+    text: "LOCAL DUMMY Hi there!",
+    user: "LOCAL DUMMY Amando",
     added: new Date(),
   },
   {
-    text: "Hello World!",
-    user: "Charles",
+    text: "LOCAL DUMMY Hello World!",
+    user: "LOCAL DUMMY Charles",
     added: new Date(),
   },
 ];
 
-indexRouter.get("/", (req, res) =>
+// indexRouter.get("/", (req, res) =>
+//   res.render("index", {
+//     title: "ScaxCodes mini message board",
+//     messages: messages,
+//   })
+// );
+
+indexRouter.get("/", async function getAllMessages(req, res) {
+  const messages = await db.getAllMessages();
+  console.log(messages);
   res.render("index", {
     title: "ScaxCodes mini message board",
-    messages: messages,
-  })
-);
+    messages,
+  });
+});
 
 module.exports = { indexRouter, messages };
