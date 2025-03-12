@@ -4,32 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <style>
-      .button {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #0056b3;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <h1>All Messages</h1>
-    <ul>
-      <% messages.forEach((message) => { %>
-      <li>
-        <strong><%= message.user %></strong>: <%= message.text %> <br />
-        <small><%= message.added.toLocaleString() %></small>
-      </li>
-      <% }) %>
-    </ul>
-    <a href="/new" class="button">New Message</a>
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+      <header class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold">All Messages</h1>
+        <a
+          href="/new"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          New Message
+        </a>
+      </header>
+      <ul class="space-y-4">
+        <% messages.forEach((message) => { %>
+        <li class="bg-white p-4 rounded shadow">
+          <h5 class="text-xl font-semibold"><%= message.user %></h5>
+          <p class="mt-2 text-gray-700"><%= message.text %></p>
+          <small class="text-gray-500">
+            <%= message.added.toLocaleString() %>
+          </small>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
   </body>
 </html>
