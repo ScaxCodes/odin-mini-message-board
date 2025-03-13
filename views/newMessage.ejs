@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post New Message - ScaxCodes mini message board</title>
+    <!-- I am aware that this is not the best way to include tailwindcss
+    but I am using it for the sake of simplicity in my first fullstack project -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100">
@@ -50,5 +52,20 @@
         </div>
       </form>
     </div>
+    <!-- Loading Spinner Modal -->
+    <div
+      id="loadingModal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm hidden"
+    >
+      <div
+        class="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-blue-500"
+      ></div>
+    </div>
+    <script>
+      // Show the loading spinner modal when the form is submitted.
+      document.querySelector("form").addEventListener("submit", function () {
+        document.getElementById("loadingModal").classList.remove("hidden");
+      });
+    </script>
   </body>
 </html>
