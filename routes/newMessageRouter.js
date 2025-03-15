@@ -1,15 +1,10 @@
 const { Router } = require("express");
-const db = require("../db/queries");
+const messageController = require("../controllers/messageController");
 
 const newMessageRouter = Router();
 
 newMessageRouter.get("/", (req, res) => res.render("newMessage"));
 
-newMessageRouter.post("/", async function postMessage(req, res) {
-  const text = req.body.text;
-  const user = req.body.user;
-  await db.insertMessage(text, user);
-  res.redirect("/");
-});
+newMessageRouter.post("/", messageController.postMessage);
 
 module.exports = newMessageRouter;
